@@ -1,0 +1,13 @@
+{
+  "name": "legco_page_201508",
+  "version": "0.0.1",
+  "description": "A low-interactive webpage distribution of the Legco analysis project of Initium Media",
+  "license": "LicenseRef-LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/initiummedia/legco_page_201508.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
+}
