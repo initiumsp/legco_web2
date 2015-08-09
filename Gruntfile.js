@@ -5,20 +5,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    env: {
-      options: {
-        dev: {
-          NODE_ENV: "DEVELOPMENT"
-        },
-        prod: {
-          node_ENV: 'PRODUCTION'
-        }
-      }
-    },
-
     clean: ['dist'],
 
     inline: {
+      dev: {
+        options: {
+          cssmin: false,
+          uglify: false
+        },
+        src: 'src/index.html',
+        dest: 'dist/index.html'
+      },
       dist: {
         options: {
           cssmin: true,
@@ -39,21 +36,11 @@ module.exports = function(grunt) {
           'dist/index.html': 'dist/index.html'
         }
       },
-
-      dist_removeComments: {
-        options: {
-          removeComments: true,
-          collapseWhitespace: true
-        },
-        files: {
-          'dist/index.html': 'dist/index.html'
-        }
-      }
     },
 
     watch: {
       app: {
-        files: ['src/**/*'],
+        files: ['src/index.html', 'src/scripts/main.js', 'src/styles/main.scss'],
         options: {
           livereload: true
         },
@@ -128,7 +115,14 @@ module.exports = function(grunt) {
       }
     },
 
+    execute: {
+      opencc: {
+        src: ['utils/s2t.js']
+      }
+    }
+
   });
+
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -142,10 +136,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-targethtml');
   grunt.loadNpmTasks('grunt-rsync');
+  grunt.loadNpmTasks('grunt-execute');
 
 
-  grunt.registerTask('build', ['sass', 'clean', 'inline', 'copy']);
+  grunt.registerTask('build', ['sass', 'clean', 'inline:dev', 'copy']);
   grunt.registerTask('serve', ['connect:dist', 'watch']);
-  grunt.registerTask('deploy', ['build', 'targethtml:prod', 'htmlmin', 'gh-pages', 'rsync']);
+  grunt.registerTask('deploy', ['sass', 'clean', 'inline:dist', 'copy', 'targethtml:prod', 'htmlmin', 'execute',
+                                'gh-pages', 'rsync']);
 
 };

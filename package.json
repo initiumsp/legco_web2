@@ -19,10 +19,12 @@
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-execute": "^0.2.2",
     "grunt-gh-pages": "^0.10.0",
     "grunt-inline": "^0.3.6",
     "grunt-processhtml": "^0.3.8",
     "grunt-rsync": "^0.6.2",
-    "grunt-targethtml": "^0.2.6"
+    "grunt-targethtml": "^0.2.6",
+    "opencc": "^1.0.3"
   }
 }
