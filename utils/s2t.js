@@ -6,6 +6,8 @@
     var opencc = new OpenCC('hk2s.json');
     var simplifiedText = opencc.convertSync(data);
 
+    simplifiedText = simplifiedText.replace('zh-hant', 'zh-hans');
+
     fs.writeFile("dist/index_hans.html", simplifiedText, function(err) {
       if(err) {
         return console.log(err);

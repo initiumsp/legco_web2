@@ -1,13 +1,105 @@
+$fullWidth: 1200px;
+$contentWidthRatio: 0.6;
+$contentWidth: $fullWidth * $contentWidthRatio;
+
+@mixin blockAlign($direction) {
+  #{$direction}: 0;
+  @media screen and (max-width: #{$fullWidth}) {
+    float: #{$direction};
+  }
+}
+
+
 body {
+
   font-family: sans-serif;
   font-size: 1.5em;
-}
 
-#container {
-  margin: 0 auto;
-  width: 50%;
-}
+  h1 {
+    text-align: center;
+    max-width: $contentWidth;
+    margin: 0 auto;
+  }
 
-video {
-  width: 100%;
+  p {
+    display: block;
+    max-width: $contentWidth;
+    line-height: 1.5;
+    margin: 0 auto;
+  }
+
+  video {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #main {
+    margin: 0 auto;
+    max-width: $fullWidth;
+    position: relative;
+
+    h2 {
+      text-align: center;
+    }
+
+    .sideBlock {
+      $blockPadding: 10px;
+      $marginLeft: 10px;
+
+      //Positioning
+      position: absolute;
+      width: ($fullWidth - $contentWidth) / 2 - $marginLeft;
+      margin-left: $marginLeft;
+
+      //Borrow space from text when the screen is too narrow
+      @media screen and (max-width: $fullWidth) {
+        position: static;
+      }
+
+      // Cosmetics
+      box-sizing: border-box;
+      border: 2px solid #31AFBE;
+      border-radius: 5px;
+      padding: $blockPadding;
+
+      opacity: 0.2;
+      &:hover {
+        opacity: 1;
+      }
+
+      h3 {
+        font-size: 1.2em;
+        text-align: center;
+      }
+    }
+
+    .wiki {
+      //TODO
+    }
+
+    #wiki_legco {
+      @include blockAlign('right')
+    }
+
+    span.areaReference {
+      $backgroundColor: azure;
+      $highlightColor: yellow;
+
+      background-color: $backgroundColor;
+
+      &:hover {
+        background-color: $highlightColor;
+      }
+    }
+
+    #matrixSegment-bottom-right {
+      @include blockAlign('left');
+    }
+
+    #matrixSegment-top-left {
+      @include blockAlign('left');
+    }
+
+  }
+
 }

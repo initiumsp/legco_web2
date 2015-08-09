@@ -1,12 +1,59 @@
 body {
   font-family: sans-serif;
   font-size: 1.5em; }
-
-#container {
-  margin: 0 auto;
-  width: 50%; }
-
-video {
-  width: 100%; }
+  body h1 {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto; }
+  body p {
+    display: block;
+    max-width: 720px;
+    line-height: 1.5;
+    margin: 0 auto; }
+  body video {
+    width: 100%;
+    margin-bottom: 10px; }
+  body #main {
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative; }
+    body #main h2 {
+      text-align: center; }
+    body #main .sideBlock {
+      position: absolute;
+      width: 230px;
+      margin-left: 10px;
+      box-sizing: border-box;
+      border: 2px solid #31AFBE;
+      border-radius: 5px;
+      padding: 10px;
+      opacity: 0.2; }
+      @media screen and (max-width: 1200px) {
+        body #main .sideBlock {
+          position: static; } }
+      body #main .sideBlock:hover {
+        opacity: 1; }
+      body #main .sideBlock h3 {
+        font-size: 1.2em;
+        text-align: center; }
+    body #main #wiki_legco {
+      right: 0; }
+      @media screen and (max-width: 1200px) {
+        body #main #wiki_legco {
+          float: right; } }
+    body #main span.areaReference {
+      background-color: azure; }
+      body #main span.areaReference:hover {
+        background-color: yellow; }
+    body #main #matrixSegment-bottom-right {
+      left: 0; }
+      @media screen and (max-width: 1200px) {
+        body #main #matrixSegment-bottom-right {
+          float: left; } }
+    body #main #matrixSegment-top-left {
+      left: 0; }
+      @media screen and (max-width: 1200px) {
+        body #main #matrixSegment-top-left {
+          float: left; } }
 
 /*# sourceMappingURL=main.css.map */
