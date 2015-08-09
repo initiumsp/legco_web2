@@ -86,16 +86,30 @@ module.exports = function(grunt) {
         flatten: true,
         src:  ['src/images/*'],
         dest: 'dist/images/'
+      },
+      CNAME: {
+        src:  ['src/CNAME'],
+        dest: 'dist/'
       }
     },
 
     sass: {
       dist: {
         files: {
-          'app/styles/main.css': 'src/styles/main.scss'
+          'src/styles/main.css': 'src/styles/main.scss'
         }
       }
+    },
+
+    'gh-pages': {
+      options: {
+        base: 'dist',
+        branch: 'gh-pages',
+        repo: 'https://github.com/initiummedia/legco_web2.git'
+      },
+      src: '**/*'
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -107,10 +121,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.loadNpmTasks('grunt-inline');
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-targethtml');
+
 
   grunt.registerTask('build', ['sass', 'clean', 'inline', 'copy']);
   grunt.registerTask('serve', ['connect:dist', 'watch']);
-  grunt.registerTask('produce', ['build', 'targethtml:prod', 'htmlmin']);
+  grunt.registerTask('deploy', ['build', 'targethtml:prod', 'htmlmin', 'gh-pages']);
 
 };
