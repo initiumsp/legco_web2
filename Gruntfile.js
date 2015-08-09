@@ -88,6 +88,8 @@ module.exports = function(grunt) {
         dest: 'dist/images/'
       },
       CNAME: {
+        expand: true,
+        flatten: true,
         src:  ['src/CNAME'],
         dest: 'dist/'
       }
@@ -108,7 +110,23 @@ module.exports = function(grunt) {
         repo: 'https://github.com/initiummedia/legco_web2.git'
       },
       src: '**/*'
-    }
+    },
+
+    rsync: {
+      options: {
+        args: ["--verbose"],
+        exclude: [".git*","*.scss","node_modules"],
+        recursive: true
+      },
+      showcase: {
+        options: {
+          src: "./dist/",
+          dest: "/home/vagrant/web/legco_web2",
+          host: "showcase",
+          delete: true // Careful this option could cause data loss, read the docs!
+        }
+      }
+    },
 
   });
 
@@ -123,10 +141,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-inline');
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-targethtml');
+  grunt.loadNpmTasks('grunt-rsync');
 
 
   grunt.registerTask('build', ['sass', 'clean', 'inline', 'copy']);
   grunt.registerTask('serve', ['connect:dist', 'watch']);
-  grunt.registerTask('deploy', ['build', 'targethtml:prod', 'htmlmin', 'gh-pages']);
+  grunt.registerTask('deploy', ['build', 'targethtml:prod', 'htmlmin', 'gh-pages', 'rsync']);
 
 };
