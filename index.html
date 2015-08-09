@@ -8,20 +8,68 @@
     <meta charset="UTF-8" />
     <title>立法會分析</title>
     <style>
-body{font-family:sans-serif;font-size:1.5em}#container{margin:0 auto;width:50%}video{width:100%}
+body {
+  font-family: sans-serif;
+  font-size: 1.5em; }
+  body h1 {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto; }
+  body p {
+    display: block;
+    max-width: 700px;
+    line-height: 1.5;
+    margin: 0 auto; }
+  body video {
+    max-width: 100%;
+    margin-bottom: 10px; }
+  body #main {
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative; }
+    body #main h2 {
+      text-align: center; }
+    body #main .wiki {
+      border: 2px solid #31AFBE;
+      border-radius: 5px;
+      padding: 10px;
+      margin-left: 10px;
+      position: absolute;
+      opacity: 0.2; }
+      body #main .wiki:hover {
+        opacity: 1; }
+      body #main .wiki h3 {
+        font-size: 1.2em;
+        text-align: center; }
+    body #main #wiki_legco {
+      left: 1000px; }
+
+/*# sourceMappingURL=main.css.map */
+
 </style>
   </head>
 
   <body>
   <div id="container">
 
-    <h1>大題</h1>
+    <div id="main">
+
+    <h1>立法會分析</h1>
 
     <video controls>
       <source src="images/intro.mp4" type="video/mp4" />
       <source src="images/intro.webm" type="video/webm" />
       抱歉，您的瀏覽器不支持 HTML5 視頻。
     </video>
+
+    <div class="wiki" id="wiki_legco">
+      <h3>
+        立法會是怎麼投票的？
+      </h3>
+      <p>
+        田田田田田田田田
+      </p>
+    </div>
 
     <p>
     「等埋發叔」、嫻姐「O嘴」、田氏兄弟舌戰… 6月18日政改投票「甩轆」及其後的經典場面依然歷歷在目。但議事堂有時娛樂性雖高，監察議員表現與其聽其言不如也觀其行。建制派是否分裂？泛民建制是否水火不容？整理今屆立法會所有投票記錄後，我們找到一些蛛絲馬跡。
@@ -79,9 +127,13 @@ body{font-family:sans-serif;font-size:1.5em}#container{margin:0 auto;width:50%}v
     對角線顯示議員對自己動議的支持度，愈支持愈深色，但這條深色線之間有一格例外。民建聯黨魁、行政會議成員李慧琼曾七度對自己的動議案投下反對票。這七次投票發生於2012年2月20至21日，為（辣招）印花稅草案其中多條提出修訂，但身為動議者的她卻投下反對票。李慧琼透過助理回覆，因她是相關法案委員會主席，委員會經討論後決定由主席代部分委員提出他們的修訂案，而民建聯的立場是反對有關修訂案，故出現自己的提案自己反的「矛盾大作戰」。
     </p>
 
+    </div> <!-- #main -->
+
   </div> <!-- #container -->
 
   <script>
+(function(){
+}());
 
 </script>
   <!--(if target dev)><!-->
