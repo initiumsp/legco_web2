@@ -1,4 +1,4 @@
-(function(){
+(function(window, document, undefined){
   // Special configuration for touchscreens
   var is_touch_device = 'ontouchstart' in document.documentElement;
   if (is_touch_device) {
@@ -54,4 +54,4 @@
     }
   }
 
-}());
+}(window, window.document));
