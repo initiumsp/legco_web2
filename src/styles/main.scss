@@ -17,7 +17,8 @@ body {
 
   h1 {
     text-align: center;
-    margin: 0 auto;
+    margin: 1em auto;
+    font-size: 3em;
   }
 
   #container {
@@ -37,7 +38,7 @@ body {
       margin-bottom: 10px;
     }
 
-    #matrixBox {
+    #matrixOuterBox {
 
       max-width: $fullWidth - $contentWidth;
       float: right;
@@ -45,12 +46,19 @@ body {
 
       .box {
         position: absolute;
-        border: 5px solid #31AFBE;
-        display: none;
+        border: 5px solid #EE0;
+        display: none; //Default state, before activated
       }
 
       #matrix {
         width: 100%;
+      }
+
+      @media screen and (max-width: 1024px) {
+        width: 50%;
+        margin: 0 auto;
+        clear: both;
+        float: none;
       }
 
     }
@@ -60,7 +68,6 @@ body {
       max-width: $contentWidth;
       max-height: 800px;
       overflow: scroll;
-
       border: 1px solid #333;
 
       h2 {
@@ -68,62 +75,28 @@ body {
         max-width: $contentWidth;
       }
 
-      .sideBlock {
-        $blockPadding: 10px;
-        $marginLeft: 10px;
-
-        //Positioning
-        position: absolute;
-        width: ($fullWidth - $contentWidth) / 2 - $marginLeft;
-        margin-left: $marginLeft;
-
-        //Borrow space from text when the screen is too narrow
-        @media screen and (max-width: $fullWidth) {
-          position: static;
-        }
-
-        // Cosmetics
-        box-sizing: border-box;
-        border: 2px solid #31AFBE;
-        border-radius: 5px;
-        padding: $blockPadding;
-
-        opacity: 0.2;
-        &:hover {
-          opacity: 1;
-        }
-
-        h3 {
-          font-size: 1.2em;
-          text-align: center;
-        }
-      }
-
-      .wiki {
-        //TODO
-      }
-
-      #wiki_legco {
-        @include blockAlign('right')
-      }
-
       span.areaReference {
-        $backgroundColor: azure;
-        $highlightColor: yellow;
+        $highlightColor: #EE0;
 
-        background-color: $backgroundColor;
+        background-color: $highlightColor;
 
         &:hover {
           border-bottom: 5px solid black;
         }
       }
 
-      #matrixSegment-bottom-right {
-        @include blockAlign('left');
-      }
+      @media screen and (max-width: 1024px) {
+        float: left;
+        width: 100%;
+        max-width: none;
 
-      #matrixSegment-top-left {
-        @include blockAlign('left');
+        p {
+          max-width: none;
+        }
+
+        h2 {
+          max-width: none;
+        }
       }
     }
 

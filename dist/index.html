@@ -13,7 +13,8 @@ body {
   font-size: 1.5em; }
   body h1 {
     text-align: center;
-    margin: 0 auto; }
+    margin: 1em auto;
+    font-size: 3em; }
   body #container {
     margin: 0 auto;
     max-width: 1280px;
@@ -25,16 +26,22 @@ body {
     body #container video {
       width: 100%;
       margin-bottom: 10px; }
-    body #container #matrixBox {
+    body #container #matrixOuterBox {
       max-width: 768px;
       float: right;
       position: relative; }
-      body #container #matrixBox .box {
+      body #container #matrixOuterBox .box {
         position: absolute;
-        border: 5px solid #31AFBE;
+        border: 5px solid #EE0;
         display: none; }
-      body #container #matrixBox #matrix {
+      body #container #matrixOuterBox #matrix {
         width: 100%; }
+      @media screen and (max-width: 1024px) {
+        body #container #matrixOuterBox {
+          width: 50%;
+          margin: 0 auto;
+          clear: both;
+          float: none; } }
     body #container #mainBox {
       max-width: 512px;
       max-height: 800px;
@@ -43,42 +50,19 @@ body {
       body #container #mainBox h2 {
         text-align: center;
         max-width: 512px; }
-      body #container #mainBox .sideBlock {
-        position: absolute;
-        width: 374px;
-        margin-left: 10px;
-        box-sizing: border-box;
-        border: 2px solid #31AFBE;
-        border-radius: 5px;
-        padding: 10px;
-        opacity: 0.2; }
-        @media screen and (max-width: 1280px) {
-          body #container #mainBox .sideBlock {
-            position: static; } }
-        body #container #mainBox .sideBlock:hover {
-          opacity: 1; }
-        body #container #mainBox .sideBlock h3 {
-          font-size: 1.2em;
-          text-align: center; }
-      body #container #mainBox #wiki_legco {
-        right: 0; }
-        @media screen and (max-width: 1280px) {
-          body #container #mainBox #wiki_legco {
-            float: right; } }
       body #container #mainBox span.areaReference {
-        background-color: azure; }
+        background-color: #EE0; }
         body #container #mainBox span.areaReference:hover {
           border-bottom: 5px solid black; }
-      body #container #mainBox #matrixSegment-bottom-right {
-        left: 0; }
-        @media screen and (max-width: 1280px) {
-          body #container #mainBox #matrixSegment-bottom-right {
-            float: left; } }
-      body #container #mainBox #matrixSegment-top-left {
-        left: 0; }
-        @media screen and (max-width: 1280px) {
-          body #container #mainBox #matrixSegment-top-left {
-            float: left; } }
+      @media screen and (max-width: 1024px) {
+        body #container #mainBox {
+          float: left;
+          width: 100%;
+          max-width: none; }
+          body #container #mainBox p {
+            max-width: none; }
+          body #container #mainBox h2 {
+            max-width: none; } }
 
 /*# sourceMappingURL=main.css.map */
 
@@ -89,16 +73,17 @@ body {
   <h1>立法會分析</h1>
   <div id="container">
 
-    <video controls id="introVideo">
+    <video controls id="introVideo" poster="images/intro_poster.png">
       <source src="images/intro.mp4" type="video/mp4" />
       <source src="images/intro.webm" type="video/webm" />
       抱歉，您的瀏覽器不支持 HTML5 視頻。
     </video>
 
-    <div id="matrixBox">
-      <img src="images/legco-matrix.png" id="matrix"/>
+    <div id="matrixOuterBox">
+      <div id="matrixBox">
+        <img src="images/legco-matrix.png" id="matrix"/>
+      </div>
     </div>
-
     <div id="mainBox">
 
     <p>
