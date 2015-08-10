@@ -1,5 +1,5 @@
-$fullWidth: 1200px;
-$contentWidthRatio: 0.6;
+$fullWidth: 1280px;
+$contentWidthRatio: 0.4;
 $contentWidth: $fullWidth * $contentWidthRatio;
 
 @mixin blockAlign($direction) {
@@ -7,7 +7,7 @@ $contentWidth: $fullWidth * $contentWidthRatio;
   @media screen and (max-width: #{$fullWidth}) {
     float: #{$direction};
   }
-}
+};
 
 
 body {
@@ -17,87 +17,114 @@ body {
 
   h1 {
     text-align: center;
-    max-width: $contentWidth;
     margin: 0 auto;
   }
 
-  p {
-    display: block;
-    max-width: $contentWidth;
-    line-height: 1.5;
-    margin: 0 auto;
-  }
+  #container {
 
-  video {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  #main {
     margin: 0 auto;
     max-width: $fullWidth;
     position: relative;
 
-    h2 {
-      text-align: center;
+    p {
+      display: block;
+      max-width: $contentWidth;
+      line-height: 1.5;
     }
 
-    .sideBlock {
-      $blockPadding: 10px;
-      $marginLeft: 10px;
+    video {
+      width: 100%;
+      margin-bottom: 10px;
+    }
 
-      //Positioning
-      position: absolute;
-      width: ($fullWidth - $contentWidth) / 2 - $marginLeft;
-      margin-left: $marginLeft;
+    #matrixBox {
 
-      //Borrow space from text when the screen is too narrow
-      @media screen and (max-width: $fullWidth) {
-        position: static;
+      max-width: $fullWidth - $contentWidth;
+      float: right;
+      position: relative;
+
+      .box {
+        position: absolute;
+        border: 5px solid #31AFBE;
+        display: none;
       }
 
-      // Cosmetics
-      box-sizing: border-box;
-      border: 2px solid #31AFBE;
-      border-radius: 5px;
-      padding: $blockPadding;
-
-      opacity: 0.2;
-      &:hover {
-        opacity: 1;
+      #matrix {
+        width: 100%;
       }
 
-      h3 {
-        font-size: 1.2em;
+    }
+
+    #mainBox {
+
+      max-width: $contentWidth;
+      max-height: 800px;
+      overflow: scroll;
+
+      border: 1px solid #333;
+
+      h2 {
         text-align: center;
+        max-width: $contentWidth;
       }
-    }
 
-    .wiki {
-      //TODO
-    }
+      .sideBlock {
+        $blockPadding: 10px;
+        $marginLeft: 10px;
 
-    #wiki_legco {
-      @include blockAlign('right')
-    }
+        //Positioning
+        position: absolute;
+        width: ($fullWidth - $contentWidth) / 2 - $marginLeft;
+        margin-left: $marginLeft;
 
-    span.areaReference {
-      $backgroundColor: azure;
-      $highlightColor: yellow;
+        //Borrow space from text when the screen is too narrow
+        @media screen and (max-width: $fullWidth) {
+          position: static;
+        }
 
-      background-color: $backgroundColor;
+        // Cosmetics
+        box-sizing: border-box;
+        border: 2px solid #31AFBE;
+        border-radius: 5px;
+        padding: $blockPadding;
 
-      &:hover {
-        background-color: $highlightColor;
+        opacity: 0.2;
+        &:hover {
+          opacity: 1;
+        }
+
+        h3 {
+          font-size: 1.2em;
+          text-align: center;
+        }
       }
-    }
 
-    #matrixSegment-bottom-right {
-      @include blockAlign('left');
-    }
+      .wiki {
+        //TODO
+      }
 
-    #matrixSegment-top-left {
-      @include blockAlign('left');
+      #wiki_legco {
+        @include blockAlign('right')
+      }
+
+      span.areaReference {
+        $backgroundColor: azure;
+        $highlightColor: yellow;
+
+        background-color: $backgroundColor;
+
+        &:hover {
+          border-bottom: 5px solid black;
+        }
+      }
+
+      #matrixSegment-bottom-right {
+        @include blockAlign('left');
+      }
+
+      #matrixSegment-top-left {
+        @include blockAlign('left');
+      }
     }
 
   }
