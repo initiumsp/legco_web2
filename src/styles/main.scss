@@ -9,11 +9,12 @@ $contentWidth: $fullWidth * $contentWidthRatio;
   }
 };
 
-
 body {
 
-  font-family: sans-serif;
-  font-size: 1.5em;
+  font-family: 'Helvetica Neue', 'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  font-size: 18px;
+  color: #333;
+  background-color: #EEE;
 
   h1 {
     text-align: center;
@@ -30,7 +31,7 @@ body {
     p {
       display: block;
       max-width: $contentWidth;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     video {
@@ -38,37 +39,30 @@ body {
       margin-bottom: 10px;
     }
 
-    #matrixOuterBox {
+    #videoShareDiv {
 
-      max-width: $fullWidth - $contentWidth;
-      float: right;
-      position: relative;
+      font-size: 1.5em;
 
-      .box {
-        position: absolute;
-        border: 5px solid #EE0;
-        display: none; //Default state, before activated
+      a {
+
+        text-decoration: none;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        img {
+          width: 2ex;
+          vertical-align: baseline;
+        }
       }
-
-      #matrix {
-        width: 100%;
-      }
-
-      @media screen and (max-width: 1024px) {
-        width: 50%;
-        margin: 0 auto;
-        clear: both;
-        float: none;
-      }
-
     }
 
     #mainBox {
 
       max-width: $contentWidth;
-      max-height: 800px;
       overflow: scroll;
-      border: 1px solid #333;
+      margin: 0 auto;
 
       h2 {
         text-align: center;
